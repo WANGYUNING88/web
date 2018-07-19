@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+ <script type="text/javascript">
+
+             var leftTime = 10;
+             var TimeID;
+             function scroll() {//alert(222);
+                 var btn = document.getElementById("btnAgree");
+                 //如果网页速度非常慢的话，可能定时器运行的时候控件还没有加载！
+                 if (btn) {//alert(11);
+                     if (leftTime <= 0) {
+                         btn.value = "同意";
+                         btn.disabled = "";
+                         clearInterval(TimeID);
+                     }
+                     else {
+                         btn.value = "请阅读协议，同意（还剩下"+leftTime+"秒）";
+                         leftTime--;
+                     }
+                 }
+             }
+             TimeID=setInterval("scroll()", 1000);
+          </script>
+</head>
+
+<body>
+ <textarea id="TextArea1" cols="20" rows="2"></textarea>
+<input id="btnAgree" type="button" value="同意" disabled="disabled"/>
+</body>
+</html>

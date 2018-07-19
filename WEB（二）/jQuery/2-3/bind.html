@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>Jquery鼠标事件</title>
+<script src="jquery.js"></script>
+</head>
+<body>
+<div id="show" style="background-color:#FFEE11;">鼠标移动到此处</div>
+<script>
+
+$("#show").bind({
+	mouseover:function(){
+	$(this).css("background-color","#33FFEE");}
+	,
+	mouseout:function(){
+	$(this).css("background-color","#FFEE11");
+	}
+})
+
+</script>
+</body>
+</html>

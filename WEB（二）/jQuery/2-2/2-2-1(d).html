@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <script>
+  function init() {
+   var myDiv = document.getElementById('myDiv');
+   myDiv.style.border="3px solid red";
+   }
+  </script>
+ <style>
+  div {
+    width: 90px;
+    height: 90px;
+    float:left;
+    padding: 5px;
+    margin: 5px;
+    background-color: #EEEEEE;
+  }
+  </style>
+ </head>
+ <body onload="init()">
+   <div id="notMe"><p>id="notMe"</p></div>
+  <div id="myDiv">id="myDiv"</div>
+ </body>
+</html>

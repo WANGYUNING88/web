@@ -1,0 +1,62 @@
+<html>
+	<head>
+	 <!--   引入jQuery -->
+	<title>用户注册</title>
+	<script src="jquery.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			//检测用户名
+			$('input[name="username"]').blur(function(){
+				//1、创建错误信息节点
+				var $error3 = $('<span class="red">用户名不能为空</span>');
+				
+				//2、连接节点到DOM树上
+				if($(this).val() == ''){
+					$span = $('td:eq(1) span').remove();
+					$('td:eq(1)').append($error3);
+				}else{
+					$span = $('td:eq(1) span').remove();
+				}
+			});
+
+		});	
+	</script>
+	<style>
+		*{
+			font-size:36px;
+		}
+		.submit{
+			padding-left:180px;
+		}
+		h1{
+			font-size:50px;
+			font-family:"楷体";
+		}
+		.red{
+			color:red;
+		}
+	</style>
+	</head>
+	<body>
+		<h1 class="submit">用户注册</h1>
+		<table>
+			<tr>
+				<td align="right">用户名：</td>
+				<td><input type="text" name="username" /></td>
+			</tr>
+			<tr>
+				<td align="right">密码：</td>
+				<td><input type="password" name="pswd" /></td>
+			</tr>
+			<tr>
+				<td align="right">确认密码：</td>
+				<td><input type="password" name="repswd" /></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="left" class="submit">
+					<input type="submit" name="submit" value="注册"/>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

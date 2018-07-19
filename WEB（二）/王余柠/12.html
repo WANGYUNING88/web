@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script src="jquery.js" type="text/javascript"></script>
+<style type="text/css">
+*{
+margin: 0;
+padding: 0;
+}
+#a{
+background-color: #EEEEEE;
+height: 200px;
+width: 950px;
+margin: auto;
+text-align: center;
+background-image: url(./images/bg.gif);
+opacity:0.7;
+float: center;
+}
+#a>ul{
+list-style:none;
+margin-left: 250px
+}
+#a>ul >li{
+position:relative;
+float: left;
+line-height: 40px;
+text-align: center;
+list-style:none;
+}
+#a>ul> li:hover ul{
+display: block;
+}
+#btn{
+	margin-top: 180px;
+}
+#a a{
+text-decoration: none;
+color: black;
+display: block;
+padding: 0 10px;
+}
+#a a:hover{
+color:white;
+
+}
+#a>ul> li> ul> li{
+float: none;
+font-size: 12px;
+margin-top: 2px;
+list-style:none;
+}
+#a>ul> li> ul{
+position:absolute;
+left: o ;
+top:40px;
+display: none;
+list-style:none;
+}
+#b{
+	font-size: 30px;
+	margin-left: 200px
+}
+#b ul{
+	list-style: none;
+	text-align: left;
+}
+#b a{
+text-decoration: none;
+color: black;
+display: block;
+padding: 0 10px;
+}
+#b a:hover{
+color:white;
+background-color: gray;
+}
+#c{
+	margin-right:4px;
+	margin-left:4px;
+	float:left;
+}
+#d{
+	margin-left:500px;
+	margin-top: 0px;
+	font-size: 30px;
+}
+#d h1{
+			font-size:50px;
+			font-family:"楷体";
+		}
+#d input{
+	font-size: 20px;
+}
+img{
+	width:150px;
+	height:200px;
+	margin-left:5px;
+}
+#e{
+	margin:0 auto;
+	white-space:nowrap; 
+	width:600px;
+	height:200px;
+	overflow:hidden;
+	border:1px solid #C90;
+}
+
+</style>
+<script type="text/javascript">
+function showsubmenu(li){
+var sub =li.getElementsByTagName("ul")[0];
+sub.style.display="block";
+}
+function hide(li){
+var submenu=li.getElementsByTagName('ul')[0];
+submenu.style.display="none";
+}
+function change(){ 
+
+var oSecondDiv = this.parentNode.getElementsByTagName("ul")[0]; 
+if(oSecondDiv.className == "myHide") 
+oSecondDiv.className = "myShow"; 
+else 
+oSecondDiv.className = "myHide"; 
+} 
+window.onload = function(){ 
+var oUl = document.getElementById("listUL"); 
+var aLi = oUl.childNodes;
+var oA; 
+for(var i=0;i<aLi.length;i++){ 
+
+if(aLi[i].tagName == "LI" && aLi[i].getElementsByTagName("ul").length){ 
+oA = aLi[i].firstChild;
+oA.onclick = change;
+} 
+} 
+
+</script>
+</head>
+<script type="text/javascript">
+$(document).ready(function(){
+$("#btn").click(function(){
+$("body").css({'background-image':'url(images/11.gif)'})
+});
+});
+$(document).ready(function(){
+$("#btn1").click(function(){
+$("body").css({'background-image':'url(images/12.gif)'})
+});
+});
+</script>
+<body background="images/12.gif"
+style=" background-repeat:no-repeat ;
+background-size:100% 100%; 
+background-attachment: fixed;" 
+>
+<div id="a">
+<ul>
+<li><a href=""> 英雄联盟 </a></li>
+<li onmouseover="showsubmenu(this)" onmouseout="hide(this)"><a href="">战绩查询</a>
+<ul>
+<li><a href="">匹配战绩</a></li>
+<li><a href="">排位战绩</a></li>
+</ul>
+</li>
+<li onmouseover="showsubmenu(this)" onmouseout="hide(this)"><a href="">个人中心</a>
+<ul>
+<li><a href="">召唤师资料</a></li>
+<li><a href="">对战数据</a></li>
+<li><a href="">好友对战</a></li>
+</ul>
+</li>
+<li onmouseover="showsubmenu(this)" onmouseout="hide(this)"><a href="">个人荣誉</a>
+<ul>
+<li><a href="">四杀截图</a></li>
+<li><a href="">五杀截图</a></li>
+<li><a href="">超神截图</a></li>
+</ul>
+</li>
+<li onmouseover="showsubmenu(this)" onmouseout="hide(this)"><a href="">活动汇总</a>
+<ul>
+<li><a href="">神秘商店</a></li>
+<li><a href="">幸运召唤师</a></li>
+<li><a href="">新手训练营</a></li>
+</ul>
+</li>
+<input align="center" id="btn" type="button" value="更换背景图片">
+<input align="center" id="btn1" type="button" value="返回上一个">
+</div>
+
+<style> 
+
+body{ 
+background-color:#EEEEEE; 
+} 
+#b{
+	height: 100px;
+    width: 100px;
+}
+li{
+    text-align: center;
+}
+</style>
+<div id="b">
+<ul id="ba"> 
+<li><a href="#">主页</a></li> 
+<li><a href="#">英雄</a></li>
+<li><a href="#">皮肤</a></li> 
+<li><a href="#">头像</a></li> 
+<li><a href="#">客服</a></li> 
+</ul>
+</div>
+<script language="JavaScript" type="text/javascript">
+
+var daqu=[
+ ["艾欧尼亚","黑色玫瑰","水晶之痕"],
+ ["比尔吉沃特","德玛西亚","无畏先锋"],
+ ["教育一区","教育二区"],
+ 
+ ];
+function getDaqu(){
+ var sltFenqu=document.getElementById('fenqu');
+ var sltDaqu=document.getElementById('daqu');
+ var fenquDaqu=daqu[sltFenqu.selectedIndex-1];
+ sltDaqu.length=1;
+ for(var i=0;i<fenquDaqu.length;i++){
+ sltDaqu[i+1]=new Option(fenquDaqu[i],fenquDaqu[i]);
+ }
+}
+
+ </script>
+<script type="text/javascript">
+		$(document).ready(function(){
+			$('input[name="username"]').blur(function(){
+				$(this).nextAll().html("");
+				if($(this).val() == ''){
+					$(this).parent().append('<font color="red">&nbsp;&nbsp;用户名不能为空</font>');
+				}else{
+					$(this).nextAll().html("");
+				}
+			});
+			$('input[name="pswd"]').blur(function(){
+				$(this).nextAll().html("");
+				if($(this).val() == ''){
+					$(this).parent().append('<font color="red">&nbsp;&nbsp;密码不能为空</font>');
+				}else{
+					$(this).nextAll().html("");
+				}
+			});
+			$('input[name="repswd"]').blur(function(){
+				$(this).nextAll().html("");
+				if($(this).val() != $('input[name="pswd"]').get(0).value){
+					$(this).parent().append('<font color="red">&nbsp;&nbsp;两次输入的密码必须一致</font>');
+				}else{
+					$(this).nextAll().html("");
+				}
+			});
+		});	
+	</script>
+
+<div id="d">
+	<h1 class="submit" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户注册</h1>
+		<table>
+			<tr>
+				<td align="left">用户名：</td>
+				<td><input type="text" name="username" /></td>
+			</tr>
+			<tr>
+				<td align="left">密码：</td>
+				<td><input type="password" name="pswd" /></td>
+			</tr>
+			<tr>
+				<td align="left">确认密码：</td>
+				<td><input type="password" name="repswd" /></td>
+			</tr>
+			<tr><td>
+			<form action="somepage.asp" name="theForm">
+            <select name="fenqu" id="fenqu" onchange="getDaqu()">
+            <option value="0">请选择分区</option>
+            <option value="电信大区">电信大区</option>
+            <option value="网通大区">网通大区</option>
+            <option value="教育专区">教育专区</option>
+            </select>
+            <select id="daqu" name="daqu">
+            <option value="0">请选择所在区名</option>
+            </select>
+            </form>
+            </td></tr>
+			<tr>
+				<td colspan="2" align="left" class="submit">
+					<input type="submit" name="submit" value="注册"/>
+					<input type="submit" name="submit" value="已有账号，去登陆"/>
+				</td>
+			</tr>
+		</table>
+</div>
+<script type="text/javascript">
+	window.onload = function()
+{
+	var speed = 10;
+	var e = document.getElementById('e');
+	var e1 = document.getElementById('e1');
+	var ID = setInterval(change,speed);
+
+	e.onmouseover = function()
+	{
+		clearInterval(ID);
+	}
+
+	e.onmouseout = function()
+	{
+		ID = setInterval(change,speed);
+	}
+}
+
+function change()
+{
+	if(e.scrollLeft >= (e1.offsetWidth))
+		e.scrollLeft = 0;
+	else
+		e.scrollLeft += 1;
+}
+</script>
+<h1 align="center">部分英雄和皮肤展示</h1>
+<div id="e">
+
+	<span id="e1">
+		<img src="images/1.jpg" />
+		<img src="images/2.jpg" />
+		<img src="images/3.jpg" />
+		<img src="images/4.jpg" />
+		<img src="images/5.jpg" />
+		<img src="images/6.jpg" />
+		<img src="images/7.jpg" />
+		<img src="images/8.jpg" />
+	</span>
+	<span id="e2">
+		<img src="images/1.jpg" />
+		<img src="images/2.jpg" />
+		<img src="images/3.jpg" />
+		<img src="images/4.jpg" />
+		<img src="images/5.jpg" />
+		<img src="images/6.jpg" />
+		<img src="images/7.jpg" />
+		<img src="images/8.jpg" />
+	</span>
+
+</div>
+</body>
+</html>

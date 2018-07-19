@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <head>
+    <title> changeBgColor </title>
+	<style type = "text/css">
+	  .container{
+	    height:300px;
+		width:800px;
+		color:white;
+		background-color:blue;
+	  }
+	</style>
+	<script type = "text/javascript">
+	    function getBgColor(){
+		    var container = document.getElementById("container");
+			//alert(container.style.backgroundColor);
+			container.style.backgroundColor = "red";
+		}
+	</script>
+  </head>
+
+  <body>
+    <div class ="container" id = "container">
+	  some contents here!
+	</div>
+	<input type = "button" value = "getBgColor" onclick = "getBgColor();" />
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head> 
+<meta charset="utf-8"> 
+<title>toggleClass demo</title> 
+<link rel="stylesheet" href="jquery-ui.css"> 
+<style> 
+div {  
+width: 100px;  
+height: 100px;  
+background-color: #ccc; 
+} 
+.big-blue {  
+width: 200px;  
+height: 200px;  
+background-color: #00f;  
+} 
+</style>  
+<script src="jquery-1.9.0.js"></script>
+<script src="jquery-ui.js"></script>
+</head>
+<body> 
+<div></div>
+<script>
+$( "div" ).click(function() {
+$( this ).toggleClass( "big-blue", 1000);
+});
+</script> 
+</body>
+</html>

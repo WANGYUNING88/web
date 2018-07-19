@@ -1,0 +1,18 @@
+<html>
+<head>
+<script src="jquery.js"></script>
+<title>Jquery</title>
+<script>
+//当DOM载入就绪可以查询及操纵时绑定一个要执行的函数。
+$(document).ready(function(){
+	//这里开始常见事件处理代码
+	$("#buts").click(function(){
+		alert("Jquery事件处理结果");
+	});
+});
+</script>
+</head>
+<body>
+<button id="buts">点击</button>
+</body>
+</html>

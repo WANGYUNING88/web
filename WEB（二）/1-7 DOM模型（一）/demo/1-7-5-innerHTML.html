@@ -1,0 +1,30 @@
+<html>
+<head>
+<style type="text/css">
+#errorTip{
+color:red;
+}
+</style>
+<script type="text/javascript">
+window.onload = function(){
+	var username = document.getElementById("username");
+	username.onblur = function(){
+		var errorTip = document.getElementById("errorTip");
+		if (this.value == "")
+		{
+			errorTip.innerHTML = "错误！";
+		}
+		else
+		{
+			errorTip.innerHTML = "";
+		}
+	}
+}
+</script>
+</head>
+<body>
+	<form>
+		<div>用户名：<input type="text" value="" name="username" id="username" /><span id="errorTip"></span></div>
+	</form>
+</body>
+</html>

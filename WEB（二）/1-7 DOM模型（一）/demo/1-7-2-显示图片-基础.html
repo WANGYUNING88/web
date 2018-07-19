@@ -1,0 +1,56 @@
+﻿<html>
+ <head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>使用BOM实现文档操作 </title>
+	<style type="text/css">
+		li {
+			float: left;
+			margin-left: 15px;
+			margin-bottom: 10px;
+		}
+		img {
+			display: block;
+			clear: left;
+		}
+	</style>
+
+  	<script type="text/javascript">		
+			
+			//显示图片函数，由传入的参数确定显示哪一张图片
+			function showPic(which) {
+				//1. 获得点击处文字所对应的图片地址
+				var source = which.href;
+				
+				//2. 获得图片占位符的<img />标签
+				var img = window.document.images[0];
+				
+				//3.修改图片占位符的图片
+				img.src = source;
+			    
+			} //end of showPic()
+		
+	</script>		
+ </head>
+	
+ <body>
+  <h1>图片链接</h1>
+	<!-- 4个超链接，当单击一个链接时显示对应的图片 -->
+  <ul>
+		<li> 
+			<a href="images/1.jpg" onclick="showPic(this); return false;">金鱼</a> 
+		</li>
+		<li> 
+			<a href="images/2.jpg" onclick="showPic(this); return false;">草原</a> 
+		</li>
+		<li> 
+			<a href="images/3.jpg" onclick="showPic(this); return false;">荷花</a> 
+		</li>
+		<li> 
+			<a href="images/4.jpg" onclick="showPic(this); return false;">森林</a> 
+		</li>
+  </ul>
+	<!-- 待显示图片的位置-->
+	<img src="images/0.jpg" width="300px" height="200px" alt="图片占位符" />
+
+ </body>
+</html>

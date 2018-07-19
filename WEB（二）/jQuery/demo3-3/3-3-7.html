@@ -1,0 +1,30 @@
+<html lang="en">
+<head>  
+<meta charset="utf-8">  
+<title>effect demo</title>  
+<link rel="stylesheet" href="jquery-ui.css">  
+<style>  
+div {    
+width: 100px;    
+height: 100px;    
+background: #ccc;    
+border: 1px solid #000;  
+}  
+</style>  
+<script src="jquery-1.9.0.js"></script>
+<script src="jquery-ui.js"></script>
+</head>
+<body> 
+<p>Click anywhere to apply the effect.</p>
+<div>
+</div> 
+<script>
+$( document ).click(function() {
+$( "div" ).effect( "shake", "fast" ,hello);}
+);
+function hello(){
+alert("Hello JavaScript!");
+};
+</script> 
+</body>
+</html>

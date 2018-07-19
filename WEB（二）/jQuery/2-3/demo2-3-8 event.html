@@ -1,0 +1,18 @@
+﻿<html>
+<head>
+<title>jQuery的event事件</title>
+<script type="text/javascript" src="jquery-1.8.3.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#buts").keydown(function(event){
+		if(event.which==65){
+			alert('按A键弹出对话框');
+		}
+	});
+})
+</script>
+</head>
+<body>
+<input type="button" id="buts" value="按A键按钮" />
+</body>
+</html>

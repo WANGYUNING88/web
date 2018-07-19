@@ -1,0 +1,144 @@
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	list-style-type: none;
+}
+a{
+	text-decoration: none;
+	color: #000;
+}
+a:hover{
+	text-decoration: none;
+	color: #FF7F00;
+}
+body{
+	width: 980px;
+	background-image: url(../images/logo.jpg);
+	background-repeat: no-repeat;
+	background-position: 198px 0;
+	margin-left: 198px;
+	border: 1px solid #70DB93;
+}
+/*顶部*/
+.ys{
+	margin-top: 65px;
+	margin-left: 800px;
+	font-size: 12px;
+}
+#banner{
+	width: 980px;
+	background-image: url(../images/bottom_bg1.gif);
+	background-repeat: no-repeat;
+	margin-top: 10px;
+}
+#banner ul li{
+	font-size: 14px;
+	font-weight: bold;
+	display: inline-block;
+	padding: 10px 20px;
+}
+#banner ul li a{
+	color: #FFF;
+}
+#banner ul li a:hover{
+	color: #E47833;
+}
+/*中左上*/
+.zzs{
+	width: 224px;
+	margin-top: 20px;
+	margin-left: 15px;
+	float: left;
+}
+.zzs ul{
+	height: 100px;
+	border-left: 1px solid #007FFF;
+	border-right: 1px solid #007FFF;
+	height: 300px;
+}
+.zzs ul li{
+	text-align: center;
+	border-bottom: 2px solid #A8A8A8;
+	margin: 0px 10px; 
+	padding-top: 30px;
+}
+/*中右上*/
+.zys{
+	height: 40px;
+	background-image: url(../images/title_bg2.gif);
+	background-repeat: no-repeat;
+	background-position: 235px 0px;
+	font-size: 12px;
+	margin-top: 15px;
+}
+.weizhi{
+	margin-left: 270px;
+	padding-top: 15px;
+}
+.soso1{
+	width: 110px;
+	height: 20px;
+	border: 1px solid #A8A8A8;
+	margin-top: -18px;
+	margin-left: 565px;
+}
+.soso{
+	margin-top: -18px;
+	margin-left: 690px;
+}
+/*中右下*/
+.zyx{
+	font-size: 12px;
+	line-height: 25px;
+	margin: 10px 0 0 260px;
+}
+.date{
+	margin-top: -25px;
+	margin-left: 590px;
+}
+/*页码*/
+.pages1{
+	width: 40px;
+	padding: 5px;
+	margin-left: 250px;
+	padding-top: 30px;
+}
+.pages1:hover{
+	color: red;
+}
+.pages ul{
+	margin-left: 335px;
+	margin-top: -23px;
+}
+.pages ul li{
+	width: 20px;
+	height: 20px;
+	margin-left: 2px;
+	float: left;
+	border: 1px solid #CDCDCD;
+}
+.pages ul li a{
+	padding: 7px;
+}
+.pages a:hover{
+	color: red;
+}
+.pages ul li:hover{
+	border: 1px solid blue;
+	background-color: #CDCDCD;
+}
+/*底部*/
+.footer{
+	margin-top: 100px;
+	height: 135px;
+	background-image: url(../images/bottom_bg1.gif);
+}
+.footer1,.footer2{
+	font-size: 12px;
+	text-align: center;
+	line-height: 30px;
+}
+.blue{
+	margin-left: 450px;
+}

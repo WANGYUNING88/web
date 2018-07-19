@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>  
+<meta charset="utf-8">  
+<title>removeClass demo</title> 
+<link rel="stylesheet" href="jquery-ui.css"> 
+<style> 
+div {   
+width: 100px;   
+height: 100px;   
+background-color: #ccc; 
+}  
+.big-blue {   
+width: 200px;   
+height: 200px;  
+background-color: #00f; 
+} 
+</style> 
+<script src="jquery-1.9.0.js"></script>
+<script src="jquery-ui.js"></script>
+</head>
+<body>
+<div class="big-blue">
+</div> 
+<script>
+$( "div" ).click(function() {
+$( this ).removeClass( "big-blue", 1000, "easeInBack" );
+});
+</script>
+</body>
+</html>

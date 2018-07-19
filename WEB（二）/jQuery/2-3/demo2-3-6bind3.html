@@ -1,0 +1,19 @@
+﻿<html>
+<head>
+<title>Jquery的bind3</title>
+<script src="jquery.js"></script>
+<script>
+$(document).ready(function(){
+	$("#divs").bind("click mouseout", function(){											$(this).css("width","200px"); 
+	});
+	$("#btn").click(function(){
+		$("#divs").unbind("click");
+	})
+});
+</script>
+</head>
+<body>
+<div id="divs" style="background-color:#FFEE11;width:100px;height:100px" >鼠标点击</div>
+<input type="button" value="解除事件" id="btn" />
+</body>
+</html>

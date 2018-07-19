@@ -1,0 +1,56 @@
+﻿<html>
+<head>
+<title>jQuery另一种验证方式</title>
+<script src="jquery-1.8.3.js"></script>
+<script src="validate/jquery.validate.js"></script>
+<script src="validate/jquery.metadata.js"></script>
+<script src="validate/jquery.validate.messages_cn.js"></script>
+<script>
+$(document).ready(function(){
+	$("#testform").validate({
+		rules:{
+			username:{
+				required:true,
+				minlength:2
+			},
+			passwd:{
+				required:true,
+				minlength:8
+			}
+
+		}
+	
+	});
+	
+});
+
+</script>
+<style>
+em,label {
+	color:#FF2211;
+}
+#usertitle,#pwdtitle{
+	color:#000000;
+}
+</style>
+</head>
+<body>
+<form class="testforms" id="testform" method="get" action="#">
+<fieldset>
+<legend>另一种实现的方式</legend>
+<p>
+<label id="usertitle">用户名:</label><em>*</em>
+<input  name="username" />
+</p>
+<p>
+<label id="pwdtitle">密码:</label><em>*</em>
+<input name="passwd" />
+</p>
+<p>
+<input class="submit" type="submit" value="提交" />
+</p>
+</p>
+</fieldset>
+</form>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title> New Document </title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        #main{
+        width:1000px;
+        margin:auto;
+        }
+        #smallpic{
+        height:120px; 
+        }
+        img{
+        float:left; 
+        margin-right:10px; 
+        margin-bottom:10px;
+        }
+        #smallpic img:hover{
+            cursor:pointer; /*设定鼠标的形状为小手*/
+        }
+        .pb{
+         border:3px solid #14c3fd;
+        } 
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div id="smallpic">
+            <img src="images/s2.jpg" width="180" height="100"/>
+            <img src="images/s3.jpg" width="180" height="100"/>
+            <img src="images/s4.jpg" width="180" height="100"/>
+            <img src="images/s5.jpg" width="180" height="100"/>
+            <img src="images/s6.jpg" width="180" height="100"/>
+        </div>
+        <div>
+            <img id="bigpic" src="images/s1.jpg" width="940px" />
+        </div>
+    </div>
+</body>
+<script>
+var img=document.getElementById('div');
+img = document.getElementsByTagName('img');
+var id=document.getElementById("bigpic");
+for (var i = 0; i < img.length; i++) {
+    img[i].onclick=function(){
+        for (var i = 0; i < img.length; i++) {
+            img[i].style.border=""
+        }
+        this.style.border="5px yellow solid";
+        bigpic.src=this.src;
+    }
+}
+</script>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <title></title>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<script type="text/javascript" src="includes/JQuery.js"></script>
+			<script type="text/javascript">
+				$(function(){
+					  var leftDiv = $("#a");
+					  var rightDiv = $("#b");
+					  var maxHeight = Math.max(leftDiv.height(), rightDiv.height());
+						leftDiv.height(maxHeight);
+						rightDiv.height(maxHeight);
+				});
+      </script>
+   </head>
+   <body >
+   	<div style="">
+   		<div id="a" style="display:inline-block;border: 1px solid blue;margin:0;padding:0">aa</div>
+   		<div id="b" style="display:inline-block;border:1px solid red;height:300px">bb</div>
+   	</div>
+   </body>
+</html>

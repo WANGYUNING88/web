@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+   <script src="http://code.jquery.com/jquery-latest.js"></script>  
+  <script>
+ 
+  $(document).ready(function(){
+   var dom=document.getElementById("cr");
+   var $cr=$(dom);   
+   $cr.click(function(){
+     if($cr.is(":checked")){
+	  alert("感谢您的支持！");
+	  }
+   })
+  })
+  </script>
+ </head>
+
+ <body>
+  <form>
+    <input type="checkbox" name="checkbox" id="cr">我已经勾选！
+   
+ </form>
+ </body>
+</html>

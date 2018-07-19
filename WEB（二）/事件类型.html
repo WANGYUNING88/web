@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>事件类型</title>
+</head>
+<body>
+<script type="text/javascript">
+	function w()
+	{
+		alert("本网站提示您，点击前请慎重考虑！");
+	}
+	function e()
+	{
+		alert("本网站提示您，点击前请慎重考虑！");
+	}
+    
+</script>
+<form onsubmit="e();">
+<input type="text"  onblur="w();"/><br/>
+<input type="submit" value="提交" /><br/><br/>
+<select onchange="w();"><br/>
+	<option >1</option>
+	<option >2</option>
+	<option >3</option>
+	<option >4</option>
+</select>
+</form >
+</body>
+</html>

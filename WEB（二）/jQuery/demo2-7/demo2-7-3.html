@@ -1,0 +1,83 @@
+﻿<html>
+<head>
+<title>jQuery自定义验证规则</title>
+<script src="jquery-1.8.3.js"></script>
+<script src="validate/jquery.validate.js"></script>
+<script src="validate/jquery.metadata.js"></script>
+<script src="validate/jquery.validate.messages_cn.js"></script>
+<script>
+$.validator.addMethod(
+	"formula",
+	function(value,element,param){
+		return value == eval(param);
+	},
+	"请正确的输入数学公式计算后的结果"
+);
+$(document).ready(function(){
+	
+	$("#testform").validate({
+		rules:{
+			username:{
+				required:true,
+				minlength:2
+			},
+			passwd:{
+				required:true,
+				minlength:8
+			},
+			valcode:{
+				formula: $("#leftcode").val()+''+$("#codeelg").val()+''+$("#rightcode").val()
+			}
+		}
+	
+	});
+	
+	
+});
+
+</script>
+<style>
+em,label {
+	color:#FF2211;
+}
+#usertitle,#pwdtitle{
+	color:#000000;
+}
+#leftcode,#rightcode,#codeelg{
+	color:#FFFFFF;
+	background-color:#000000;
+	width:15px;
+	height:15px;
+	border:0px;
+	text-align:center;
+}
+
+</style>
+</head>
+<body>
+<form class="testforms" id="testform" method="get" action="#">
+<fieldset>
+<legend>自定义验证规则</legend>
+<p>
+<label id="usertitle">用户名:</label><em>*</em>
+<input  name="username" />
+</p>
+<p>
+<label id="pwdtitle">密码:</label><em>*</em>
+<input type="text" name="passwd" />
+</p>
+<p>
+<label id="pwdtitle">验证码:</label><em>*</em>
+<input type="text" name="valcode" id="valcode"/>
+<input type="text" name="leftcode" id="leftcode" value="9"/>
+<input type="text" name="codeelg" id="codeelg" value="+"/>
+<input type="text" name="rightcode" id="rightcode" value="10"/>
+</p>
+<p>
+<input class="submit" type="submit" value="提交" />
+</p>
+</p>
+</fieldset>
+</form>
+</body>
+</html>

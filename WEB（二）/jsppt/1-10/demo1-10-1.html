@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<input type="text" id="username" />
+	<br />
+	<img src="1.jpg" style="width:200px;" id="image" />
+</body>
+<script type="text/javascript">
+	window.onload = function(e) {
+		console.log(e);
+	}
+	document.getElementById("username").onkeypress = function(e) {
+		console.log(e.keyCode);
+		if (e.keyCode == 13) {
+			alert("提交表单");
+		}
+	}
+	document.getElementById("image").onclick = function(e) {
+		alert(e.clientX + " " + e.clientY);
+		alert(e.screenX + " " + e.screenY);
+	}
+</script>
+</html>

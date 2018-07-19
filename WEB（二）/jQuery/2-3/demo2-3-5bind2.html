@@ -1,0 +1,14 @@
+﻿<html>
+<head>
+<title>Jquery的bind2</title>
+<script src="jquery.js"></script>
+<script>
+$(document).ready(function(){
+	$("#divs").bind("dblclick mouseout",function(){ $(this).css("background-color","blue");});
+});
+</script>
+</head>
+<body>
+<div id="divs" style="background-color:#FFEE11;" >鼠标出或者双击该层</div>
+</body>
+</html>

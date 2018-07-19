@@ -1,0 +1,32 @@
+﻿<html>
+<head>
+<title>Jquery实验</title>
+<style type="text/css">
+div{
+background-color:#FFEE11;
+border:1px solid #FFEEAA;
+width:300px;
+}
+</style>
+<script src="jquery.js"></script>
+<script>
+$(document).ready(function(){
+	$("div").mouseover(function(){ 
+		$(this).css("background-color","red");
+	});
+	$("div").mouseout(function(){ 
+		$(this).css("background-color","#FFEE11");
+	});
+	$("div").click(function(){ 
+		$(this).css("background-color","blue");
+	});
+});
+</script>
+</head>
+<body>
+<div >第一个层</div>
+<div >第二个层</div>
+<div >第三个层</div>
+<div >第四个层</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>1-6-3</title>
+		
+		<script type="text/javascript">
+		var newWindow;
+		//打开新窗口
+		function openNewWindow(){
+			newWindow = window.open("newwindow.html","",'height=200,width=300');
+		}
+		
+		//关闭新打开的窗口
+		function closeNewWindow(){
+			if(newWindow != 'undefined') {
+				newWindow.close();
+			}
+		}
+		</script>
+	</head>
+
+	<body>
+		<input type="button" value="打开新窗口" onclick="openNewWindow();" />
+		<input type="button" value="关闭新窗口" onclick="closeNewWindow();" />
+	</body>
+</html>

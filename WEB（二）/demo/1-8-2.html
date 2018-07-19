@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<title> form实例 </title>
+		
+		<style type="text/css">
+			div {
+			  float: left;
+			}
+
+			select {				
+				height: 100px;
+				width: 100px;
+				margin: 0;				
+			}
+
+			p#submit {
+			  clear: left;
+			}
+			
+		</style>
+
+		<script type="text/javascript">
+		<!--
+		  //自动获得焦点
+			window.onload = function() {
+				//获得所有input结点
+			  var myInputNodes = document.getElementsByTagName("input");
+				for (var i=0; i<myInputNodes.length; ++i)
+				{
+					//选择第1个“type=text”结点
+				  //if (myInputNodes[i].getAttribute("type") == "text")
+				  if (myInputNodes[i].type == "text")
+				  {
+						//聚焦该结点
+						myInputNodes[i].focus();
+						break;
+				  } //if
+				} //for
+
+				//为“用户名”添加验证函数，当失去焦点时调用函数
+				
+
+			} //onload()		//-->
+		</script>
+	</head>
+
+	<body>
+		<form>
+			<table>
+				<tr>
+					<td>用户名：</td>
+					<td><input type="text" id="username" name="username" /></td>
+				</tr>
+				<tr>
+					<td>密码：</td>
+					<td><input type="password" id="passwd" name="passwd" /></td>
+				</tr>
+				<tr>
+					<td>确认密码：</td>
+					<td><input type="password" id="rePasswd" name="rePasswd" /></td>
+				</tr>
+				
+				<tr>
+					<td>&nbsp;</td>
+					<td><input type="reset" id="reset" name="rePasswd" value="重设" />
+					<input id="submit" type="submit" value="提交" /></td>
+				</tr>
+
+			
+				
+			
+			</table>
+		</form>
+	</body>
+</html>

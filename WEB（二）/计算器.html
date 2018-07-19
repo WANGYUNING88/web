@@ -1,0 +1,151 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+  	<title></title>
+  	<style type="text/css">
+  	table,td{
+       border:1px solid #c0c0c0;
+  	}
+  	 button{
+  	 	width: 50px;
+  	 	height: 50px;
+  	 }
+  	 td{
+         padding: 10px;
+  	 }
+  	 #result{
+  	 	font-weight: bolder;
+  	 	font-size: 20px;
+  	 	text-align: right;
+  	 }
+  	</style>
+  </head>
+  <body>
+  	<table>
+  		<tr>
+  			<td colspan="3" id="result">
+  				0
+  			</td>
+  			<td>
+  				<button value="归零">归零</button>
+  			</td>
+  			
+  		</tr>
+  		<tr>
+  			<td>
+  				<button value="1">1</button>
+  			</td>
+  			<td>
+  				<button value="2">2</button>
+  			</td>
+  			<td>
+  				<button value="3">3</button>
+  			</td>
+  			<td>
+  				<button value="+">+</button>
+  			</td>
+  		</tr>
+  		<tr>
+  			<td>
+  				<button value="4">4</button>
+  			</td>
+  			<td>
+  				<button value="5">5</button>
+  			</td>
+  			<td>
+  				<button value="6">6</button>
+  			</td>
+  			<td>
+  				<button value="-">-</button>
+  			</td>
+  		</tr>
+  		<tr>
+  			<td>
+  				<button value="7">7</button>
+  			</td>
+  			<td>
+  				<button value="8">8</button>
+  			</td>
+  			<td>
+  				<button value="9">9</button>
+  			</td>
+  			<td>
+  				<button value="*">*</button>
+  			</td>
+  		</tr>
+  		<tr>
+  			<td>
+  				<button value="0">0</button>
+  			</td>
+  			<td>
+  				<button value=".">.</button>
+  			</td>
+  			<td>
+  				<button value="=">=</button>
+  			</td>
+  			<td>
+  				<button value="/">/</button>
+  			</td>
+  		</tr>
+  	</table>
+  </body>
+<script type="text/javascript">
+    var str="";
+	window.onload=function(){
+       loadEvent();
+	}
+	//绑定事件函数
+	function loadEvent(){
+		var btns=document.getElementsByTagName("button");
+		     
+		for(var i=0;i<btns.length;i++){
+			btns[i].onclick=function(){
+				btnClick(this);
+			}
+		}
+	}
+	//定义btnClick(this)
+	function btnClick(which){
+		if (which.value=="归零") {
+			clearResult();
+		}
+		else if (which.value=="=") {
+			calculate();
+		}
+		else{
+            addNum(which);
+		}
+
+		
+	}
+	//运算区域重置为0
+	function clearResult(){
+
+		document.getElementById("result").innerHTML="0";
+        str="";
+	}
+	//运算
+	function calculate(){
+		str=eval(str);
+         str=str+"";
+		var resulNum=str;
+		var pointPosition=str.indexOf(".");
+
+		if(str.indexOf(".")>0){
+			 resulNum=str.substr(0,pointPosition+3);
+		
+		}
+		
+
+		document.getElementById("result").innerHTML=resulNum;
+		
+	}
+	//得到运算式
+	function addNum(which){
+        str+=which.value;
+        
+        document.getElementById("result").innerHTML=str;
+	}
+
+</script>
+</html>

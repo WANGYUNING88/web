@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <head>
+    <title> custom mouse pormpt </title>
+
+	<style type="text/css">
+	#divTip1{
+	  background-color:yellow;
+	  display:none;
+	  padding:5px;
+      position:absolute;
+	}
+	#toolTip{
+	  font-weight:bold;
+	}
+	</style>
+	
+	<script type="text/javascript">
+	function showTip(oEvent){
+	    var tip = document.getElementById("divTip1");
+		tip.style.display = "block";
+		tip.style.left = oEvent.clientX + "px";
+		tip.style.top = oEvent.clientY + "px";
+	}
+	function hideTip(oEvent){
+	    var tip = document.getElementById("divTip1");
+		tip.style.display = "none";
+	}
+	</script>
+  </head>
+
+  <body>
+    <div>Move your mouse over the image.</div>
+
+	<div id="div1">
+	  <img src="./img/snow.jpg" onmouseover="showTip(event)" onmouseout="hideTip(event)" />
+	</div>
+
+    <div id="divTip1">
+	  <div id="toolTip">Custom Tooltip</div>
+	  More details can go here.
+	</div>
+    
+  </body>
+</html>

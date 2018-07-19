@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>jQuery的event事件</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#divs").click(function(e){
+		alert("距离左侧"+e.pageX+","+"距离上侧:"+e.pageY);
+	});
+})
+</script>
+</head>
+<body>
+<div id="divs" style="margin-top:300px;margin-left:300px;width:600px;background-color:#FFEE22;color:#FFFFFF;">点击我获取位置</div>
+</body>
+</html>

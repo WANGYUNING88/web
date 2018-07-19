@@ -1,0 +1,44 @@
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	//var div1 = document.getElementById("div1");
+	//div1.onclick = function(){
+	//	alert("123");
+	//}
+	$("div").click(function(){
+		//this.style.background = "red";
+		$(this).css("background","red");
+	});
+});
+
+
+window.onload = function(){
+	//alert(123);
+}
+window.onload = function(){
+	//alert(456);
+}
+
+
+$(document).ready(function(){
+	$("div").bind("click",function(e){
+		$(this).css("background","red");
+		alert(e.clientX);
+		alert(e.clientY);
+	})
+	$("#btn").click(function(){
+		$("div").unbind();
+	});
+	$("a").click(function(e){
+		alert("123");
+		e.preventDefault();
+	});
+});
+</script>
+<div  id="div1" style="height:100px;width:100px;border:1px solid red">
+</div>
+<br />
+<div  id="div1" style="height:100px;width:100px;border:1px solid red">
+</div>
+<input id="btn" type="button" value="解除事件绑定" />
+<a href="http://baidu.com">点击</a>
