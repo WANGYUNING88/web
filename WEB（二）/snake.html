@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+                margin: 0;
+                padding: 0;
+            }
+            #map{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-left: -330px;
+                margin-top: -220px;
+            }
+            .box{
+                position: absolute;
+                background: #CCCCCC;
+                border: 1px solid #fff;
+            }
+            #btn{
+                width: 100px;
+                height: 30px;
+                position: absolute;
+                left: 50%;
+                top: 120px;
+                margin-left: -50px;
+            }
+            #coun{
+                width: 100px;
+                height: 30px;
+                position: absolute;
+                left: 50%;
+                top: 170px;
+                margin-left: -50px;
+                border: 2px solid #CCCCCC;
+                text-align: center;
+                line-height: 30px;
+            }
+            .snake{
+                position: absolute;
+                background: red;
+                border: 1px solid #fff;
+            }
+            .food{
+                position: absolute;
+                background: blue;
+                border: 1px solid #fff;
+            }
+        </style>
+	</head>
+	<body>
+		<input type="button" value="开始游戏" id="btn" />
+		<div id="coun">得分：<span>0</span></div>
+		<div id="map"></div>
+		<script>
+			window.onload = function() {
+				var oMap = document.getElementById("map");
+				var btn = document.getElementById("btn");
+				var oSpan = document.getElementsByTagName("span")[0];
+				var rows = 20; //设置地图行
+				var column = 30; //设置地图列
+				var boxHeight = 20; //格子高
+				var boxWidth = 20; //格子宽
+				var maps = []; //地图数组
+				var snake = []; //蛇的数组
+				var snakeX = null; //蛇的X坐标
+				var snakeY = null; //蛇的Y坐标
+				var foodX = null; //食物的X坐标
+				var foodY = null; //食物的X坐标
+				var direction = null; //方向
+				var num = 0; //记录分数
+				function reset() { //复位函数
+					oMap.innerHTML = "";
+					snake = [];
+					direction = null;
+					num = 0;
+					oSpan.innerHTML = num;
+				}
+				btn.onclick = function() { //点击开始游戏
+					reset();
+					readyPart();
+					move();
+					btn.value = "游戏进行中.....";
+					btn.disabled = true;
+					document.onkeydown = function(ev) {
+						var ev = ev || event;
+						var keyCode = ev.keyCode || ev.which;
+						switch (keyCode) {
+							case 37:
+								if (direction != "right") {
+									direction = "left";
+								}
+								break;
+							case 38:
+								if (direction != "down") {
+									direction = "up";
+								}
+								break;
+							case 39:
+								if (direction != "left") {
+									direction = "right";
+								}
+								break;
+							case 40:
+								if (direction != "up") {
+									direction = "down";
+								}
+								break;
+						}
+					}
+				}
+
+				function readyPart() { //准备部分函数
+					createMapArr();
+					crateSnake();
+					createFood();
+					createMap();
+				}
+
+				function createMap() { //生成地图
+					for (var i = 0; i < column; i++) {
+						for (var j = 0; j < rows; j++) {
+							var divs = document.createElement("div");
+							if (maps[i][j] == 1) { //当生成的坐标等于蛇的坐标
+								snake[0] = j * column + i; //将二维坐标转换为一维，y乘以列数+X，
+								divs.className = "snake"; //同时将该一维坐标的方格变为snake 的类名
+							} else {
+								if (maps[i][j] == 2) {
+									divs.className = "food";
+								} else {
+									divs.className = "box";
+								}
+							}
+							divs.id = j * column + i;
+							divs.style.height = boxHeight + "px";
+							divs.style.width = boxWidth + "px";
+							divs.style.left = i * boxWidth + "px";
+							divs.style.top = j * boxWidth + "px";
+							oMap.appendChild(divs);
+						}
+					}
+				}
+
+				function createMapArr() { //创建地图二维数组
+					for (var i = 0; i < column; i++) { //创建二维数组
+						maps[i] = []; //先声明一维数组
+						for (var j = 0; j < rows; j++) {
+							maps[i][j] = 0; //默认0，蛇 = 1；食物 = 2；
+						}
+					}
+				}
+
+				function crateSnake() { //生成蛇的随机坐标
+					snakeX = getRandom(column, 0);
+					snakeY = getRandom(rows, 0);
+					maps[snakeX][snakeY] = 1;
+				}
+
+				function createFood() { //生成食物的随机坐标
+					foodX = getRandom(column, 0);
+					foodY = getRandom(rows, 0);
+					maps[foodX][foodY] = 2;
+				}
+
+				function getRandom(Max, Min) { //取随机数
+					var Range = Max;
+					var Rand = Math.random();
+					var num = Math.floor(Range * Rand) + Min;
+					return num;
+				}
+
+				function repeatArr(string, arr) { //检测数组是否存在重复（蛇自己吃自己）
+					for (var i = 0; i < arr.length; i++) {
+						if (arr[i] == string) {
+							console.log(string);
+							console.log(arr[i]);
+							return true;
+						}
+					}
+					return false;
+				}
+
+				function checkFood() { //检查新生成的食物是否与蛇的身体重合
+					foodX = getRandom(column, 0);
+					foodY = getRandom(rows, 0);
+					if (repeatArr(foodY * column + foodX, snake)) { //如果产生重合递归它
+						checkFood();
+					} else {
+						document.getElementById(foodY * column + foodX).className = "food"; //如果没有产生重合生成新食物
+					}
+				}
+
+				function move() { //移动函数
+					var initPosition = snake[0];
+					var stratPosition = snake[0]; //开始位置
+					switch (direction) {
+						case "left":
+							stratPosition = snake[0] - 1;
+							break;
+						case "up":
+							stratPosition = snake[0] - column;
+							break;
+						case "right":
+							stratPosition = snake[0] + 1;
+							break;
+						case "down":
+							stratPosition = snake[0] + column;
+							break;
+					}
+					if (direction == "right" && stratPosition % column == 0) { //到达右边界（）
+						alert("撞墙升天");
+						btn.value = "开始游戏";
+						btn.disabled = false;
+						return false;
+					}
+					if (direction == "left" && (stratPosition + 1) % column == 0) { //到达左边界(向左运动时，stratPosition会减1，所以这里加1)；
+						alert("撞墙升天");
+						btn.value = "开始游戏";
+						btn.disabled = false;
+						return false;
+					}
+					if (stratPosition < 0 || stratPosition > column * rows) { //到达上下边界
+						alert("撞墙升天");
+						btn.value = "开始游戏";
+						btn.disabled = false;
+						return false;
+					}
+					if (initPosition != stratPosition && repeatArr(stratPosition, snake)) { //吃到自己的尾巴
+						alert("厉害了，自己吃自己！");
+						btn.value = "开始游戏";
+						btn.disabled = false;
+						return false;
+					}
+					snake.unshift(stratPosition); //将位置赋值到蛇的数组的第一个
+					var foodPosition = foodY * column + foodX;
+					if (stratPosition == foodPosition) { //吃到食物
+						//                        foodX = getRandom(column,0);
+						//                        foodY = getRandom(rows,0);
+						checkFood();
+						num++;
+						oSpan.innerHTML = num;
+						//                        document.getElementById(foodY*column + foodX).className = "food";
+					} else {
+						var lastPosition = snake.pop(); //pop方法：删除数组的最后一个值，且返回这个值；
+						if (lastPosition != snake[0]) { //重新设置地图图
+							document.getElementById(lastPosition).className = "box";
+						}
+					}
+					for (var i = 0; i < snake.length; i++) { //重新设置蛇
+						document.getElementById(snake[i]).className = "snake";
+					}
+					setTimeout(function() {
+						move();
+					}, 150);
+				}
+			}
+		</script>
+	</body>
+</html>
